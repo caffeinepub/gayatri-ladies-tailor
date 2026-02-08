@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Gujarati:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.625rem;
+        --background: 0.98 0.005 45;
+        --foreground: 0.15 0.01 0;
+        --card: 1 0 0;
+        --card-foreground: 0.15 0.01 0;
+        --popover: 1 0 0;
+        --popover-foreground: 0.15 0.01 0;
+        --primary: 0.35 0.15 15;
+        --primary-foreground: 0.98 0 0;
+        --secondary: 0.96 0.005 45;
+        --secondary-foreground: 0.15 0.01 0;
+        --muted: 0.96 0.005 45;
+        --muted-foreground: 0.45 0.01 0;
+        --accent: 0.96 0.005 45;
+        --accent-foreground: 0.15 0.01 0;
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 0.98 0 0;
+        --border: 0.90 0.005 45;
+        --input: 0.90 0.005 45;
+        --ring: 0.35 0.15 15;
+        --brand-red: 0.35 0.15 15;
+        --brand-red-dark: 0.30 0.15 15;
+        --cream: 0.98 0.005 45;
+    }
+
+    .dark {
+        --background: 0.15 0.01 0;
+        --foreground: 0.98 0 0;
+        --card: 0.20 0.01 0;
+        --card-foreground: 0.98 0 0;
+        --popover: 0.20 0.01 0;
+        --popover-foreground: 0.98 0 0;
+        --primary: 0.50 0.18 15;
+        --primary-foreground: 0.98 0 0;
+        --secondary: 0.25 0.01 0;
+        --secondary-foreground: 0.98 0 0;
+        --muted: 0.25 0.01 0;
+        --muted-foreground: 0.65 0.01 0;
+        --accent: 0.30 0.01 0;
+        --accent-foreground: 0.98 0 0;
+        --destructive: 0.60 0.20 25;
+        --destructive-foreground: 0.98 0 0;
+        --border: 0.30 0.01 0;
+        --input: 0.30 0.01 0;
+        --ring: 0.50 0.18 15;
+        --brand-red: 0.50 0.18 15;
+        --brand-red-dark: 0.45 0.18 15;
+        --cream: 0.20 0.01 0;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-cream text-foreground;
+        font-family: 'Noto Sans Gujarati', sans-serif;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Noto Sans Gujarati', sans-serif;
+    }
+}
+
+@layer utilities {
+    .font-brand {
+        font-family: 'Noto Sans Gujarati', sans-serif;
+    }
+    
+    .bg-cream {
+        background-color: oklch(var(--cream));
+    }
+    
+    .text-brand-red {
+        color: oklch(var(--brand-red));
+    }
+    
+    .bg-brand-red {
+        background-color: oklch(var(--brand-red));
+    }
+    
+    .bg-brand-red-dark {
+        background-color: oklch(var(--brand-red-dark));
+    }
+    
+    .border-brand-red {
+        border-color: oklch(var(--brand-red));
+    }
+}

@@ -1,0 +1,77 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-08T07:13:49.935Z",
+  "summary": "The diff implements the four-page SPA with Gujarati content and placeholder illustrations, but it violates the Gujarati-only UI requirement (English footer text) and introduces unrequested authentication/Internet Identity scaffolding. Asset presence under frontend/public/assets/generated cannot be confirmed from the provided diff summary.",
+  "missing_requirements": [
+    {
+      "id": "REQ-2",
+      "requirement": "Use Gujarati-only content for all visible website text (headings, paragraphs, buttons, labels) and apply a Gujarati font across the entire site.",
+      "reason": "Footer includes visible English text and an English brand/link label, violating the Gujarati-only UI requirement.",
+      "evidence": [
+        "frontend/src/components/Layout.tsx"
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "requirement": "Add the generated illustration/image assets as static files under frontend/public/assets/generated and render them in the relevant sections (hero, about, services icons, contact).",
+      "reason": "Pages reference /assets/generated/*.png, but the diff summary does not show the required image files being added under frontend/public/assets/generated (two added files were omitted due to limits), so asset existence cannot be verified from provided evidence.",
+      "evidence": [
+        "frontend/src/pages/HomePage.tsx",
+        "frontend/src/pages/AboutPage.tsx",
+        "frontend/src/pages/ServicesPage.tsx",
+        "frontend/src/pages/ContactPage.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Internet Identity / authentication context and actor management hooks (login, identity handling, authenticated actor creation).",
+      "reason": "BuildRequest explicitly lists authentication/user accounts as a non-goal, but the diff adds Internet Identity provider and related hooks.",
+      "evidence": [
+        "frontend/src/main.tsx",
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Backend canister method getEmptyArray unrelated to the website requirements.",
+      "reason": "BuildRequest is frontend-focused and does not request new backend API functionality; added backend code is not tied to any stated requirement.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Caffeine.ai attribution/footer with external link.",
+      "reason": "Not requested by the BuildRequest and also introduces English visible text in the UI.",
+      "evidence": [
+        "frontend/src/components/Layout.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/BrandHeader.tsx",
+    "frontend/src/components/Layout.tsx",
+    "frontend/src/components/ReplaceableImage.tsx",
+    "frontend/src/components/ServiceCard.tsx",
+    "frontend/src/components/SiteNav.tsx",
+    "frontend/src/content/gu.ts",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/AboutPage.tsx",
+    "frontend/src/pages/ContactPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/ServicesPage.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

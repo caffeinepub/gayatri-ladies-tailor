@@ -1,0 +1,330 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Gayatri Ladies Tailor — Gujarati-only multi-page business website with AI illustration placeholders",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a responsive SPA with exactly four pages (Home, About Us, Services, Contact Us) and active navigation highlighting.",
+      "acceptanceCriteria": [
+        "Site provides navigation to exactly these four pages: Home, About Us, Services, Contact Us.",
+        "Layout is responsive and readable on mobile screens.",
+        "Navigation highlights the current page and works without page reload issues (SPA routing)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app shell with SPA routing for exactly four routes (Home, About Us, Services, Contact Us) and a shared layout wrapper."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create a shared page layout (header/nav + main container + footer) optimized for mobile readability and consistent spacing."
+        },
+        {
+          "path": "frontend/src/components/SiteNav.tsx",
+          "operation": "create",
+          "description": "Create the top navigation using React Router link components with active-state highlighting for the current page."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create the Home page view and wire it into the router (no additional pages beyond the required four)."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "create",
+          "description": "Create the About Us page view and wire it into the router."
+        },
+        {
+          "path": "frontend/src/pages/ServicesPage.tsx",
+          "operation": "create",
+          "description": "Create the Services page view and wire it into the router."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "create",
+          "description": "Create the Contact Us page view and wire it into the router."
+        },
+        {
+          "path": "frontend/src/main.tsx",
+          "operation": "modify",
+          "description": "Update app bootstrap to render the new App component routing cleanly (SPA) and remove unused authentication provider wrappers since authentication is a non-goal."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Ensure Gujarati-only UI copy and apply a Gujarati font globally across the site.",
+      "acceptanceCriteria": [
+        "All visible text in the UI is Gujarati (no English labels/buttons).",
+        "A Gujarati font is applied globally (e.g., via CSS/Tailwind) so Gujarati glyphs render consistently."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Set the document language to Gujarati and include a Gujarati-capable webfont (e.g., via a font link) so typography is consistent across devices."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Create global styles to apply Gujarati font and enforce Gujarati-first typography defaults across the entire site."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme to define a Gujarati font family token and ensure it is used consistently via global styles and/or layout classes."
+        },
+        {
+          "path": "frontend/src/content/gu.ts",
+          "operation": "create",
+          "description": "Centralize Gujarati-only UI strings (nav labels, headings, descriptions, CTA text) to avoid accidental English text in components."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Implement strict design rules: light cream/white background, black body text, and dark red prominent shop name styling.",
+      "acceptanceCriteria": [
+        "Default body/background is white or light cream across pages.",
+        "Body text is black by default (no gray body text).",
+        "The shop name is prominently styled in dark red with noticeably larger typography than other headings."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define global background and text defaults (light cream/white background and black body text) and set a dark red accent token for consistent use across pages."
+        },
+        {
+          "path": "frontend/src/components/BrandHeader.tsx",
+          "operation": "create",
+          "description": "Create a reusable brand header element that renders the shop name “Gayatri Ladies Tailor” with large, elegant, dark red styling and uses it in the layout/hero."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Apply the strict background/text defaults and include the brand header placement so the design rules remain consistent across all pages."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build the Home page hero with shop name, illustration placeholder, Gujarati description, working hours, and a tap-friendly Call Now button (tel:7359316413).",
+      "acceptanceCriteria": [
+        "Home page shows the working time in Gujarati and clearly formatted.",
+        "Call Now button uses a tel: link pointing to 7359316413 and is easy to tap on mobile.",
+        "Hero uses an illustration image (not a human model photo) and the image section is labeled as replaceable."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Implement the Home hero section with: dark-red shop name, Gujarati description, working hours (7:00 AM–9:00 PM), and a prominent tel: link button to 7359316413. Use the shadcn-ui Button component (if present) for a consistent tap target; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/ReplaceableImage.tsx",
+          "operation": "create",
+          "description": "Create a reusable image block component that renders a static illustration and includes a small Gujarati 'replaceable' label to meet the placeholder/replaceable requirement across pages."
+        },
+        {
+          "path": "frontend/public/assets/generated/hero-sewing-illustration.dim_1400x800.png",
+          "operation": "create",
+          "description": "Add the required hero illustration asset as a static file to be rendered on the Home page hero."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Build the About Us page with Gujarati-only business details and a replaceable tailoring tools illustration/icon placeholder.",
+      "acceptanceCriteria": [
+        "About page content is Gujarati-only and reflects owner name and work-from-home tailoring service.",
+        "Page includes a non-photo illustration/icon and the section is marked as replaceable."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "modify",
+          "description": "Implement Gujarati-only About Us copy reflecting: Owner: Patel Geetaben J.; Work From Home; Ladies tailoring. Render a non-photo tools illustration via ReplaceableImage with a Gujarati replaceable label."
+        },
+        {
+          "path": "frontend/public/assets/generated/about-tailoring-tools.dim_800x600.png",
+          "operation": "create",
+          "description": "Add the required tailoring tools illustration asset as a static file for the About Us page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Build the Services page listing exactly six services in Gujarati, each with a non-photo icon/illustration in a mobile-friendly layout.",
+      "acceptanceCriteria": [
+        "Services list includes exactly the six services provided, in Gujarati.",
+        "Each service has a simple icon/illustration; no real photos are used.",
+        "Services layout is mobile-friendly (e.g., 1-column on mobile, optional grid on larger screens)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ServicesPage.tsx",
+          "operation": "modify",
+          "description": "Render exactly six Gujarati service items in a responsive list/grid. Use a consistent card style (e.g., shadcn-ui Card if present) and show a minimal icon illustration per service; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/ServiceCard.tsx",
+          "operation": "create",
+          "description": "Create a reusable service card/row component that displays the Gujarati service name plus an icon illustration and a Gujarati replaceable label for the image block."
+        },
+        {
+          "path": "frontend/public/assets/generated/service-icon-needle-thread.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the required static service icon asset for needle and thread."
+        },
+        {
+          "path": "frontend/public/assets/generated/service-icon-blouse.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the required static service icon asset for blouse."
+        },
+        {
+          "path": "frontend/public/assets/generated/service-icon-fancy-blouse.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the required static service icon asset for fancy blouse."
+        },
+        {
+          "path": "frontend/public/assets/generated/service-icon-chaniya-choli.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the required static service icon asset for chaniya choli/navratri outfit."
+        },
+        {
+          "path": "frontend/public/assets/generated/service-icon-dress-design.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the required static service icon asset for dress design/sketch."
+        },
+        {
+          "path": "frontend/public/assets/generated/service-icon-western-dress.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the required static service icon asset for western dress/hanger."
+        },
+        {
+          "path": "frontend/public/assets/generated/service-icon-custom-stitching.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the required static service icon asset for custom stitching/tape measure."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Build the Contact Us page with clickable phone number, working hours, Gujarati CTA, and a replaceable phone/message illustration placeholder.",
+      "acceptanceCriteria": [
+        "Contact page displays phone number and working hours clearly in Gujarati.",
+        "Phone number is clickable (tel: link).",
+        "Contact illustration is non-photographic and marked as replaceable."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Implement Gujarati-only contact content including working hours (7:00 AM–9:00 PM), a tel: link for 7359316413, and a simple Gujarati CTA. Include a non-photo contact illustration via ReplaceableImage with a Gujarati replaceable label."
+        },
+        {
+          "path": "frontend/public/assets/generated/contact-phone-icon.dim_256x256.png",
+          "operation": "create",
+          "description": "Add the required static contact phone icon asset for the Contact Us page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Apply a consistent minimal local-business theme (spacing, card style, icon style, typography scale) within the strict color rules across all pages.",
+      "acceptanceCriteria": [
+        "All pages share consistent layout structure (header/nav, content width, section spacing).",
+        "Only dark red is used as a primary accent color; backgrounds remain white/light cream; body text remains black.",
+        "Overall look is minimal and trustworthy (no busy patterns, no heavy gradients)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Standardize page structure (container width, section spacing, header/footer rhythm) so all pages feel cohesive and minimal."
+        },
+        {
+          "path": "frontend/src/components/SiteNav.tsx",
+          "operation": "modify",
+          "description": "Style navigation states (default/active) to match the theme and strict color rules (black text, dark red accent for active/hover)."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define shared typography scale, spacing conventions, and card/icon presentation helpers while keeping background light and body text black."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Enforce illustration-only (no real human photos) and label every image area as replaceable in Gujarati.",
+      "acceptanceCriteria": [
+        "No real-photo human imagery appears anywhere in the site.",
+        "Every illustration/image area includes a small Gujarati label indicating it is replaceable.",
+        "All imagery style is minimal and professional (consistent icon/illustration style)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ReplaceableImage.tsx",
+          "operation": "modify",
+          "description": "Ensure the component always renders the Gujarati replaceable label and provides consistent sizing/cropping so all illustrations look cohesive."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Use ReplaceableImage for the hero illustration and ensure no photo-based imagery is introduced."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "modify",
+          "description": "Use ReplaceableImage for the About illustration and ensure the Gujarati replaceable label is visible."
+        },
+        {
+          "path": "frontend/src/pages/ServicesPage.tsx",
+          "operation": "modify",
+          "description": "Use ReplaceableImage (directly or via ServiceCard) for every service icon and ensure all service imagery is illustration-only."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Use ReplaceableImage for the contact illustration and ensure the Gujarati replaceable label is visible."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Add required generated images under frontend/public/assets/generated and reference them from the relevant UI sections with Gujarati alt text.",
+      "acceptanceCriteria": [
+        "All required generated images exist under frontend/public/assets/generated.",
+        "Pages reference these images via static paths (no backend image serving).",
+        "Images load correctly in the browser and have appropriate alt text (Gujarati)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Reference frontend/public/assets/generated/hero-sewing-illustration.dim_1400x800.png as a static asset with Gujarati alt text and show a Gujarati replaceable label."
+        },
+        {
+          "path": "frontend/src/pages/AboutPage.tsx",
+          "operation": "modify",
+          "description": "Reference frontend/public/assets/generated/about-tailoring-tools.dim_800x600.png as a static asset with Gujarati alt text and show a Gujarati replaceable label."
+        },
+        {
+          "path": "frontend/src/pages/ServicesPage.tsx",
+          "operation": "modify",
+          "description": "Reference the service icons as static assets with Gujarati alt text: frontend/public/assets/generated/service-icon-needle-thread.dim_256x256.png, frontend/public/assets/generated/service-icon-blouse.dim_256x256.png, frontend/public/assets/generated/service-icon-fancy-blouse.dim_256x256.png, frontend/public/assets/generated/service-icon-chaniya-choli.dim_256x256.png, frontend/public/assets/generated/service-icon-dress-design.dim_256x256.png, frontend/public/assets/generated/service-icon-western-dress.dim_256x256.png, frontend/public/assets/generated/service-icon-custom-stitching.dim_256x256.png."
+        },
+        {
+          "path": "frontend/src/pages/ContactPage.tsx",
+          "operation": "modify",
+          "description": "Reference frontend/public/assets/generated/contact-phone-icon.dim_256x256.png as a static asset with Gujarati alt text and show a Gujarati replaceable label."
+        }
+      ]
+    }
+  ]
+}
