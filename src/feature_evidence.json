@@ -2,13 +2,9 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-implement-a-clean-mobile-friendly-multi-page-website-for-the-ladies-tailoring-business-using-four-pages-home-about-us-services-and-contact-us",
-      "featureTitle": "Implement a clean, mobile-friendly multi-page website for the ladies tailoring business using four pages: Home, About Us, Services, and Contact Us.",
+      "featureId": "feature-replace-all-auto-inserted-generated-images-across-the-site-with-strictly-empty-optional-user-controlled-image-placeholders-that-include-an-upload-image-add-image-ui-in-the-image-area-and-ensure-the-website-still-looks-complete-and-professional-when-no-images-are-provided",
+      "featureTitle": "Replace all auto-inserted/generated images across the site with strictly empty, optional, user-controlled image placeholders that include an “Upload Image / Add Image” UI in the image area, and ensure the website still looks complete and professional when no images are provided.",
       "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/Layout.tsx",
-        "frontend/src/components/SiteNav.tsx",
-        "frontend/src/main.tsx",
         "frontend/src/pages/AboutPage.tsx",
         "frontend/src/pages/ContactPage.tsx",
         "frontend/src/pages/HomePage.tsx",
@@ -22,37 +18,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-1"
+        "REQ-11"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-use-gujarati-only-content-for-all-visible-website-text-headings-paragraphs-buttons-labels-and-apply-a-gujarati-font-across-the-entire-site",
-      "featureTitle": "Use Gujarati-only content for all visible website text (headings, paragraphs, buttons, labels) and apply a Gujarati font across the entire site.",
+      "featureId": "feature-update-the-image-component-s-used-across-pages-currently-the-replaceableimage-component-so-that-it-supports-empty-state-placeholders-and-user-uploads-client-side-rather-than-requiring-a-src-url",
+      "featureTitle": "Update the image component(s) used across pages (currently the ReplaceableImage component) so that it supports empty-state placeholders and user uploads (client-side), rather than requiring a src URL.",
       "files": [
-        "frontend/index.html",
-        "frontend/src/content/gu.ts",
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-apply-the-strict-design-rules-background-must-be-white-or-light-cream-all-normal-text-color-must-be-black-the-shop-name-gayatri-ladies-tailor-must-be-displayed-in-a-large-elegant-dark-red-style",
-      "featureTitle": "Apply the strict design rules: background must be white or light cream; all normal text color must be black; the shop name “Gayatri Ladies Tailor” must be displayed in a large, elegant dark red style.",
-      "files": [
-        "frontend/src/components/BrandHeader.tsx",
-        "frontend/src/components/Layout.tsx",
+        "frontend/src/components/ReplaceableImage.tsx",
         "frontend/src/index.css"
       ],
       "components": [
@@ -63,15 +37,17 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-3"
+        "REQ-12"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-build-the-home-page-with-a-hero-section-containing-the-shop-name-dark-red-a-sewing-tailoring-themed-illustration-not-a-real-photo-a-short-gujarati-description-clearly-shown-working-time-7-00-am-to-9-00-pm-and-a-prominent-call-now-button-that-initiates-a-phone-call-to-7359316413",
-      "featureTitle": "Build the Home page with: a hero section containing the shop name (dark red), a sewing/tailoring-themed illustration (not a real photo), a short Gujarati description, clearly shown working time (7:00 AM to 9:00 PM), and a prominent Call Now button that initiates a phone call to 7359316413.",
+      "featureId": "feature-update-all-gujarati-site-content-to-match-the-provided-business-scope-and-details-include-ladies-gents-kids-tailoring-work-from-home-owner-name-working-hours-mobile-number-and-add-the-full-address-on-the-contact-page",
+      "featureTitle": "Update all Gujarati site content to match the provided business scope and details: include Ladies, Gents & Kids tailoring (work-from-home), owner name, working hours, mobile number, and add the full address on the Contact page.",
       "files": [
-        "frontend/src/components/ReplaceableImage.tsx",
+        "frontend/src/content/gu.ts",
+        "frontend/src/pages/AboutPage.tsx",
+        "frontend/src/pages/ContactPage.tsx",
         "frontend/src/pages/HomePage.tsx"
       ],
       "components": [
@@ -82,33 +58,16 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-4"
+        "REQ-13"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-build-the-about-us-page-using-the-provided-business-details-owner-patel-geetaben-j-work-from-home-ladies-tailoring-with-gujarati-only-copy-and-a-minimal-tailoring-tools-illustration-icon-placeholder-labeled-as-replaceable",
-      "featureTitle": "Build the About Us page using the provided business details (Owner: Patel Geetaben J.; Work From Home; ladies tailoring) with Gujarati-only copy and a minimal tailoring tools illustration/icon placeholder labeled as replaceable.",
-      "files": [
-        "frontend/src/pages/AboutPage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-5"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-build-the-services-page-showing-each-listed-service-as-its-own-card-row-with-a-simple-icon-illustration-no-real-photos-normal-blouse-fancy-blouse-navratri-special-chaniya-choli-dress-designing-western-dress-custom-ladies-stitching",
-      "featureTitle": "Build the Services page showing each listed service as its own card/row with a simple icon/illustration (no real photos): Normal Blouse, Fancy Blouse, Navratri Special Chaniya Choli, Dress Designing, Western Dress, Custom Ladies Stitching.",
+      "featureId": "feature-replace-the-services-page-list-with-the-new-set-of-services-written-in-formal-gujarati-provided-by-the-user-and-include-optional-empty-image-placeholders-for-service-related-images-icons-user-uploaded",
+      "featureTitle": "Replace the Services page list with the new set of services (written in formal Gujarati) provided by the user, and include optional empty image placeholders for service-related images/icons (user uploaded).",
       "files": [
         "frontend/src/components/ServiceCard.tsx",
+        "frontend/src/content/gu.ts",
         "frontend/src/pages/ServicesPage.tsx"
       ],
       "components": [
@@ -119,55 +78,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-6"
+        "REQ-14"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-build-the-contact-us-page-displaying-mobile-number-7359316413-working-hours-7-00-am-to-9-00-pm-and-a-simple-gujarati-call-to-action-include-a-minimal-phone-message-illustration-placeholder-labeled-as-replaceable",
-      "featureTitle": "Build the Contact Us page displaying mobile number (7359316413), working hours (7:00 AM to 9:00 PM), and a simple Gujarati call-to-action; include a minimal phone/message illustration placeholder labeled as replaceable.",
+      "featureId": "feature-add-the-user-s-important-note-copy-prominently-in-formal-gujarati-on-an-appropriate-page-section-e-g-home-and-or-services-and-or-about-so-it-is-clearly-visible-to-visitors",
+      "featureTitle": "Add the user’s “Important Note” copy prominently (in formal Gujarati) on an appropriate page section (e.g., Home and/or Services and/or About) so it is clearly visible to visitors.",
       "files": [
-        "frontend/src/pages/ContactPage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-7"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-a-coherent-minimal-local-business-friendly-visual-theme-that-stays-within-the-strict-rules-light-cream-white-background-black-text-dark-red-accent-and-apply-it-consistently-across-all-pages-spacing-card-style-icon-style-typography-scale",
-      "featureTitle": "Add a coherent, minimal, local-business-friendly visual theme that stays within the strict rules (light cream/white background, black text, dark red accent) and apply it consistently across all pages (spacing, card style, icon style, typography scale).",
-      "files": [
-        "frontend/src/components/Layout.tsx",
-        "frontend/src/components/SiteNav.tsx",
-        "frontend/src/index.css"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-8"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-use-ai-generated-illustrations-icons-or-fabric-sewing-themed-placeholder-images-only-do-not-use-real-human-model-photos-clearly-label-each-image-block-section-as-replaceable-for-future-updates",
-      "featureTitle": "Use AI-generated illustrations/icons or fabric/sewing themed placeholder images only; do not use real human model photos; clearly label each image block/section as replaceable for future updates.",
-      "files": [
-        "frontend/src/components/ReplaceableImage.tsx",
-        "frontend/src/pages/AboutPage.tsx",
-        "frontend/src/pages/ContactPage.tsx",
+        "frontend/src/content/gu.ts",
         "frontend/src/pages/HomePage.tsx",
         "frontend/src/pages/ServicesPage.tsx"
       ],
@@ -179,28 +98,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-9"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-the-generated-illustration-image-assets-as-static-files-under-frontend-public-assets-generated-and-render-them-in-the-relevant-sections-hero-about-services-icons-contact",
-      "featureTitle": "Add the generated illustration/image assets as static files under frontend/public/assets/generated and render them in the relevant sections (hero, about, services icons, contact).",
-      "files": [
-        "frontend/src/pages/AboutPage.tsx",
-        "frontend/src/pages/ContactPage.tsx",
-        "frontend/src/pages/HomePage.tsx",
-        "frontend/src/pages/ServicesPage.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-10"
+        "REQ-15"
       ],
       "confidence": "high"
     }

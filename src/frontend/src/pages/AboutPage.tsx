@@ -12,9 +12,8 @@ export default function AboutPage() {
         <div className="bg-white rounded-lg p-8 border border-border mb-8">
           <div className="flex justify-center mb-6">
             <ReplaceableImage
-              src="/assets/generated/about-tailoring-tools.dim_800x600.png"
               alt={content.about.imageAlt}
-              className="w-full max-w-md h-auto"
+              className="w-full max-w-md h-auto min-h-[200px]"
             />
           </div>
 
@@ -25,7 +24,7 @@ export default function AboutPage() {
 
           <div className="mt-6 pt-6 border-t border-border">
             <p className="text-foreground">
-              <span className="font-semibold">{content.about.ownerLabel}</span> {content.about.ownerName}
+              <span className="font-semibold">{content.about.ownerLabel}</span> {content.ownerName}
             </p>
           </div>
         </div>

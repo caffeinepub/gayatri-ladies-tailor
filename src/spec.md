@@ -1,16 +1,14 @@
 # Specification
 
 ## Summary
-**Goal:** Build a clean, mobile-friendly, Gujarati-only 4-page website for “Gayatri Ladies Tailor” using a minimal local-business theme (light background, black text, dark red shop-name accent) and non-photographic illustration placeholders.
+**Goal:** Remove all auto-inserted/generated illustrations and replace them with empty, optional, user-controlled upload placeholders, while updating all site copy to formal Gujarati for the tailoring business details.
 
 **Planned changes:**
-- Create SPA routing with exactly four pages: Home, About Us, Services, Contact Us; include a header navigation that highlights the active page.
-- Apply Gujarati-only UI copy across all pages and set a Gujarati font globally.
-- Enforce strict visual rules site-wide: white/light-cream background, black body text, and a prominent dark-red “Gayatri Ladies Tailor” title.
-- Home page: hero section with shop name, tailoring-themed illustration (not a real photo), short Gujarati description, working time (7:00 AM–9:00 PM), and a prominent “Call Now” button linking to `tel:7359316413`; mark image area as replaceable (Gujarati label).
-- About Us page: Gujarati content including owner “Patel Geetaben J.” and work-from-home ladies tailoring; include a minimal tailoring-tools illustration/icon placeholder labeled as replaceable (Gujarati).
-- Services page: show exactly six services as cards/rows (Gujarati), each with a simple non-photo icon/illustration; mobile-friendly layout.
-- Contact Us page: show phone number (clickable `tel:`), working hours, Gujarati call-to-action, and a minimal contact illustration placeholder labeled as replaceable (Gujarati).
-- Add generated illustration/icon assets as static files under `frontend/public/assets/generated` and reference them from the relevant sections with Gujarati alt text.
+- Update the shared image component (e.g., ReplaceableImage) to support an empty state with an in-place “Upload Image / Add Image” CTA, client-side file selection, and per-area preview without requiring a src URL.
+- Replace all currently auto-rendered images/icons across Home, About, Services, and Contact with empty upload placeholders so the layout remains complete and professional even with no uploads.
+- Update all site text to Gujarati-only (formal tone) and include business scope (Ladies, Gents & Kids tailoring; work-from-home), owner name (Patel Geetaben J.), working hours (7:00 AM to 9:00 PM), and a clickable mobile number (7359316413).
+- Update the Contact page to display the full provided multi-line address exactly as given.
+- Replace the Services list with exactly 6 services (formal Gujarati) and include an optional upload placeholder area for each service image/icon.
+- Add the “Important Note” content prominently as a distinct Gujarati callout block on an appropriate page section so it’s clearly visible without images.
 
-**User-visible outcome:** Visitors can browse a Gujarati-only, mobile-friendly website with Home/About/Services/Contact pages, see services and business details, and tap to call 7359316413; all imagery is minimal illustration-based and clearly marked as replaceable.
+**User-visible outcome:** The site shows no default illustrations; every image area offers an “Upload Image / Add Image” control with preview, and visitors see fully Gujarati business content (including services, contact details, hours, owner name, and full address) even if no images are uploaded.

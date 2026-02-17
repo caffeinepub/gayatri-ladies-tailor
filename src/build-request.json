@@ -1,243 +1,131 @@
 {
   "kind": "build_request",
-  "title": "Gujarati-only ladies tailor business website (Gayatri Ladies Tailor) with AI-illustration placeholders",
+  "title": "Replace auto-inserted illustrations with empty user-controlled upload placeholders and update Gujarati business content",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Implement a clean, mobile-friendly multi-page website for the ladies tailoring business using four pages: Home, About Us, Services, and Contact Us.",
+      "id": "REQ-11",
+      "text": "Replace all auto-inserted/generated images across the site with strictly empty, optional, user-controlled image placeholders that include an “Upload Image / Add Image” UI in the image area, and ensure the website still looks complete and professional when no images are provided.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1",
-          "msg-2"
+          "msg-6"
         ],
         "quotes": [
-          "Pages Required:\n1. Home\n2. About Us\n3. Services\n4. Contact Us",
-          "Want me to build the full code?",
-          "Yes"
+          "IMPORTANT IMAGE RULES (STRICT):\n- Do NOT auto-insert random or stock images\n- Create image sections with EMPTY placeholders only\n- Show “Upload Image / Add Image” option in image areas\n- Images must be optional and fully user-controlled\n- Website should look complete even without images"
         ]
       },
       "acceptanceCriteria": [
-        "Site provides navigation to exactly these four pages: Home, About Us, Services, Contact Us.",
-        "Layout is responsive and readable on mobile screens.",
-        "Navigation highlights the current page and works without page reload issues (SPA routing)."
+        "No pages render any default illustration/icon image (e.g., no /assets/generated/... images displayed by default).",
+        "Each image area renders an empty placeholder UI with a visible call-to-action equivalent to “Upload Image / Add Image”.",
+        "Users can select an image file from their device and see a preview replacing the placeholder in that specific image area.",
+        "If a user does not upload an image, the section layout remains visually complete (no broken-image icons, no awkward empty gaps).",
+        "No stock images or AI-generated images are automatically inserted anywhere."
       ]
     },
     {
-      "id": "REQ-2",
-      "text": "Use Gujarati-only content for all visible website text (headings, paragraphs, buttons, labels) and apply a Gujarati font across the entire site.",
+      "id": "REQ-12",
+      "text": "Update the image component(s) used across pages (currently the ReplaceableImage component) so that it supports empty-state placeholders and user uploads (client-side), rather than requiring a src URL.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-6"
         ],
         "quotes": [
-          "Language: Gujarati only",
-          "Design Rules (Strict):\n- Use Gujarati font only"
+          "Create image sections with EMPTY placeholders only",
+          "Show “Upload Image / Add Image” option in image areas"
         ]
       },
       "acceptanceCriteria": [
-        "All visible text in the UI is Gujarati (no English labels/buttons).",
-        "A Gujarati font is applied globally (e.g., via CSS/Tailwind) so Gujarati glyphs render consistently."
+        "The shared image component can render with no image provided (empty state).",
+        "The shared image component provides a file input / upload interaction directly in the image area.",
+        "The shared image component does not require a non-empty src prop to function.",
+        "Any existing “replaceable” labeling is updated to align with the new upload placeholder UX (Gujarati UI text)."
       ]
     },
     {
-      "id": "REQ-3",
-      "text": "Apply the strict design rules: background must be white or light cream; all normal text color must be black; the shop name “Gayatri Ladies Tailor” must be displayed in a large, elegant dark red style.",
+      "id": "REQ-13",
+      "text": "Update all Gujarati site content to match the provided business scope and details: include Ladies, Gents & Kids tailoring (work-from-home), owner name, working hours, mobile number, and add the full address on the Contact page.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-6"
         ],
         "quotes": [
-          "Design Rules (Strict):\n- All normal text color: Black\n- Shop name “Gayatri Ladies Tailor”:\n  - Large font size\n  - Dark Red color\n  - Elegant and aesthetic look\n- Background: White / light cream"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Default body/background is white or light cream across pages.",
-        "Body text is black by default (no gray body text).",
-        "The shop name is prominently styled in dark red with noticeably larger typography than other headings."
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Build the Home page with: a hero section containing the shop name (dark red), a sewing/tailoring-themed illustration (not a real photo), a short Gujarati description, clearly shown working time (7:00 AM to 9:00 PM), and a prominent Call Now button that initiates a phone call to 7359316413.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Home Page:\n- Hero section with shop name in dark red\n- Sewing / tailoring themed illustration image (not real photo)\n- Short Gujarati description\n- Working time shown clearly\n- Call Now button with mobile number",
+          "Business Type: Ladies, Gents & Kids Tailoring (Work From Home)",
           "Working Time: 7:00 AM to 9:00 PM",
-          "Mobile Number: 7359316413"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Home page shows the working time in Gujarati and clearly formatted.",
-        "Call Now button uses a tel: link pointing to 7359316413 and is easy to tap on mobile.",
-        "Hero uses an illustration image (not a human model photo) and the image section is labeled as replaceable."
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Build the About Us page using the provided business details (Owner: Patel Geetaben J.; Work From Home; ladies tailoring) with Gujarati-only copy and a minimal tailoring tools illustration/icon placeholder labeled as replaceable.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Owner Name: Patel Geetaben J.",
-          "Business Type: Ladies Tailoring (Work From Home)",
-          "About Us Page:\n... Replaceable illustration:\nSimple icon of fabric, scissors or tailoring tools."
-        ]
-      },
-      "acceptanceCriteria": [
-        "About page content is Gujarati-only and reflects owner name and work-from-home tailoring service.",
-        "Page includes a non-photo illustration/icon and the section is marked as replaceable."
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Build the Services page showing each listed service as its own card/row with a simple icon/illustration (no real photos): Normal Blouse, Fancy Blouse, Navratri Special Chaniya Choli, Dress Designing, Western Dress, Custom Ladies Stitching.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Services Page:\n- Each service shown with simple icon or illustration (no real photos)",
-          "Specialist In:\n- Normal Blouse\n- Fancy Blouse\n- Navratri Special Chaniya Choli\n- Dress Designing\n- Western Dress\n- Custom Ladies Stitching"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Services list includes exactly the six services provided, in Gujarati.",
-        "Each service has a simple icon/illustration; no real photos are used.",
-        "Services layout is mobile-friendly (e.g., 1-column on mobile, optional grid on larger screens)."
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "text": "Build the Contact Us page displaying mobile number (7359316413), working hours (7:00 AM to 9:00 PM), and a simple Gujarati call-to-action; include a minimal phone/message illustration placeholder labeled as replaceable.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Contact Page:\n- Mobile number\n- Working hours\n- Simple Gujarati call-to-action text",
           "Mobile Number: 7359316413",
-          "Working Time: 7:00 AM to 9:00 PM"
+          "Address:\n  Plot No. 10,\n  Keshav Township,\n  Opposite Trinity School,\n  Sabarkantha Road,\n  Talod – 383305"
         ]
       },
       "acceptanceCriteria": [
-        "Contact page displays phone number and working hours clearly in Gujarati.",
-        "Phone number is clickable (tel: link).",
-        "Contact illustration is non-photographic and marked as replaceable."
+        "Home, About, Services, and Contact pages all use formal Gujarati-only text for headings, paragraphs, buttons, and labels.",
+        "The Contact page displays the complete multi-line address exactly as provided.",
+        "Mobile number 7359316413 is highlighted and clickable via a tel: link where appropriate.",
+        "Working hours are displayed as 7:00 AM to 9:00 PM (Gujarati rendering is acceptable as long as the time range matches).",
+        "About page explicitly states work-from-home and includes the owner name Patel Geetaben J. in Gujarati."
       ]
     },
     {
-      "id": "REQ-8",
-      "text": "Add a coherent, minimal, local-business-friendly visual theme that stays within the strict rules (light cream/white background, black text, dark red accent) and apply it consistently across all pages (spacing, card style, icon style, typography scale).",
+      "id": "REQ-14",
+      "text": "Replace the Services page list with the new set of services (written in formal Gujarati) provided by the user, and include optional empty image placeholders for service-related images/icons (user uploaded).",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-6"
         ],
         "quotes": [
-          "Keep the website minimal, trustworthy, and easy to read.",
-          "Simple, local-business friendly layout",
-          "Background: White / light cream",
-          "All normal text color: Black",
-          "Shop name ... Dark Red color"
+          "SERVICES (WRITE IN FORMAL GUJARATI):\n- Ladies blouse stitching (simple and designer)\n- Navratri special chaniya choli stitching\n- Fancy dress and western dress stitching\n- Normal gents kurta stitching\n- Kurta stitching for children\n- Saree lace (less pati) stitching service"
         ]
       },
       "acceptanceCriteria": [
-        "All pages share consistent layout structure (header/nav, content width, section spacing).",
-        "Only dark red is used as a primary accent color; backgrounds remain white/light cream; body text remains black.",
-        "Overall look is minimal and trustworthy (no busy patterns, no heavy gradients)."
+        "Services page displays exactly 6 services matching the user-provided list (in formal Gujarati).",
+        "Each service row/card includes an optional upload placeholder area for an icon/image, with “Upload Image / Add Image” UI.",
+        "No pre-filled service icons are shown by default.",
+        "Services layout remains clean and readable on mobile and desktop."
       ]
     },
     {
-      "id": "REQ-9",
-      "text": "Use AI-generated illustrations/icons or fabric/sewing themed placeholder images only; do not use real human model photos; clearly label each image block/section as replaceable for future updates.",
+      "id": "REQ-15",
+      "text": "Add the user’s “Important Note” copy prominently (in formal Gujarati) on an appropriate page section (e.g., Home and/or Services and/or About) so it is clearly visible to visitors.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-6"
         ],
         "quotes": [
-          "Do NOT assume real photos are available",
-          "Use elegant AI-generated illustrations, icons, or fabric/sewing themed placeholder images",
-          "Avoid using real human model photos",
-          "Clearly mark image sections as replaceable later"
+          "IMPORTANT NOTE (Must be mentioned clearly):\n- Ladies, gents and children’s garment fitting services are provided\n- All stitching services are offered at affordable and reasonable prices\n- Quality finishing, proper fitting and timely delivery are our priorities"
         ]
       },
       "acceptanceCriteria": [
-        "No real-photo human imagery appears anywhere in the site.",
-        "Every illustration/image area includes a small Gujarati label indicating it is replaceable.",
-        "All imagery style is minimal and professional (consistent icon/illustration style)."
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "text": "Add the generated illustration/image assets as static files under frontend/public/assets/generated and render them in the relevant sections (hero, about, services icons, contact).",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-1"
-        ],
-        "quotes": [
-          "Use elegant AI-generated illustrations, icons, or fabric/sewing themed placeholder images"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All required generated images exist under frontend/public/assets/generated.",
-        "Pages reference these images via static paths (no backend image serving).",
-        "Images load correctly in the browser and have appropriate alt text (Gujarati)."
+        "The site includes Gujarati text clearly stating: (1) fitting services for ladies/gents/kids are provided, (2) affordable/reasonable pricing, (3) quality finishing, proper fitting, timely delivery.",
+        "The note is displayed as a distinct, readable block (e.g., card or callout) and is easy to find without needing images.",
+        "All text remains Gujarati-only and matches the formal/professional tone."
       ]
     }
   ],
   "constraints": [
-    "Frontend files under frontend/src/components/ui and the immutable hook/entry paths listed by the platform must not be modified directly; compose them from outside if needed.",
-    "Single-canister architecture; do not introduce additional backend services.",
-    "Use English only for this build request document; website UI text itself must be Gujarati-only."
+    "Do not auto-insert any stock/AI/random images anywhere; all images must be optional and user-controlled via upload placeholders.",
+    "All visible website text must be Gujarati-only and use a Gujarati-compatible font across the site.",
+    "Follow the strict design rules: background white or very light cream; normal text black; shop name “Gayatri Ladies Tailor” styled as large, elegant, dark red.",
+    "No heavy animations.",
+    "Do not edit files under frontend/src/components/ui or any other frontend immutablePaths listed in SYSTEM_CONTEXT."
   ],
   "nonGoals": [
-    "Do not add authentication (including Internet Identity) or user accounts.",
-    "Do not add a CMS/admin panel for editing content.",
-    "Do not integrate maps/geolocation or third-party messaging/email services.",
-    "Do not use real human model photos or assume access to real shop photography."
+    "Implementing backend storage for uploaded images (uploads may remain client-side only unless explicitly requested later).",
+    "Adding new pages beyond Home, About Us, Services, and Contact Us.",
+    "Changing authentication or adding third-party integrations."
   ],
   "imageRequirements": {
-    "required": [
-      "Minimal elegant sewing machine line illustration on light background (hero-sewing-illustration.dim_1400x800.png)",
-      "Minimal tailoring tools icon set style illustration (about-tailoring-tools.dim_800x600.png)",
-      "Minimal icon: needle and thread (service-icon-needle-thread.dim_256x256.png)",
-      "Minimal icon: blouse (service-icon-blouse.dim_256x256.png)",
-      "Minimal icon: fancy blouse (service-icon-fancy-blouse.dim_256x256.png)",
-      "Minimal icon: chaniya choli/navratri outfit (service-icon-chaniya-choli.dim_256x256.png)",
-      "Minimal icon: dress design/sketch (service-icon-dress-design.dim_256x256.png)",
-      "Minimal icon: western dress/hanger (service-icon-western-dress.dim_256x256.png)",
-      "Minimal icon: custom stitching/tape measure (service-icon-custom-stitching.dim_256x256.png)",
-      "Minimal phone/contact icon (contact-phone-icon.dim_256x256.png)"
-    ],
+    "required": [],
     "edits": []
   },
   "userProfileUpdate": {
     "goalsToAdd": [],
     "goalsToRemove": [],
-    "preferencesToAdd": [
-      "Prefer Gujarati-only UI text and Gujarati typography for small business sites.",
-      "Prefer minimal, mobile-friendly layouts with light backgrounds, black body text, and dark red accents.",
-      "Prefer AI-generated minimal illustrations/icons instead of real photos; avoid human model photos."
-    ],
+    "preferencesToAdd": [],
     "preferencesToRemove": [],
-    "miscToAdd": [
-      "Business site details: Gayatri Ladies Tailor; Owner: Patel Geetaben J.; Work hours 7:00 AM–9:00 PM; Phone 7359316413; Services: Normal Blouse, Fancy Blouse, Navratri Special Chaniya Choli, Dress Designing, Western Dress, Custom Ladies Stitching."
-    ],
+    "miscToAdd": [],
     "miscToRemove": [],
     "fieldsToSet": {},
     "fieldsToDelete": []

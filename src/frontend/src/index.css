@@ -95,3 +95,23 @@
         border-color: oklch(var(--brand-red));
     }
 }
+
+@layer components {
+    .image-upload-placeholder {
+        @apply inline-flex flex-col items-center justify-center;
+        @apply border-2 border-dashed border-border rounded-lg;
+        @apply bg-white hover:bg-secondary/50;
+        @apply cursor-pointer transition-all;
+        @apply focus-within:ring-2 focus-within:ring-brand-red focus-within:ring-offset-2;
+        min-height: 120px;
+        padding: 1.5rem;
+    }
+    
+    .image-upload-placeholder:hover {
+        @apply border-brand-red;
+    }
+    
+    .image-upload-content {
+        @apply flex flex-col items-center justify-center text-center;
+    }
+}

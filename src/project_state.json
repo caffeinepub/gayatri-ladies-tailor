@@ -1,16 +1,18 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
-  "summary": "Gujarati-only, clean, mobile-friendly small business website for 'Gayatri Ladies Tailor' (ladies tailoring, work-from-home) with Home/About/Services/Contact pages, strict typography/colors, and replaceable AI-illustration placeholders (no real photos).",
+  "projectStateVersion": 5,
+  "summary": "Gujarati-only, clean, mobile-friendly small business website for 'Gayatri Ladies Tailor' (ladies, gents & kids tailoring; work-from-home) with Home/About/Services/Contact pages, strict typography/colors, and strictly empty, user-controlled image placeholders (no auto-inserted/stock/AI images). Includes full address and updated services list.",
   "architectural_notes": [
     "Tech stack target: React + Tailwind CSS for a mobile-first static marketing site.",
     "Content constraint: all on-page user-facing text must be Gujarati only (use Gujarati font).",
     "Design constraints: shop name large + dark red; all other text black; background white/light cream; minimal local-business layout.",
-    "Media constraint: no real photos/human model images; use AI-generated illustrations/icons or tailoring-themed placeholders; clearly mark all image areas as replaceable."
+    "Image constraint update: do not use any real photos, stock images, or AI-generated images; use empty placeholders only with visible “Upload Image / Add Image” affordance; images must be optional and user-controlled; site must look complete without images.",
+    "Business scope update: Ladies, Gents & Kids Tailoring (Work From Home); include full postal address on Contact page.",
+    "Content update: Services list includes ladies blouse (simple+designer), Navratri chaniya choli, fancy/western dress, gents kurta, children kurta, saree lace (less pati).",
+    "Content note to include clearly: fitting services for ladies/gents/kids; affordable prices; quality finishing, proper fitting, timely delivery priorities."
   ],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Minimal elegant sewing machine line illustration on light background (hero-sewing-illustration.dim_1400x800.png)\n- Minimal tailoring tools icon set style illustration (about-tailoring-tools.dim_800x600.png)\n- Minimal icon: needle and thread (service-icon-needle-thread.dim_256x256.png)\n- Minimal icon: blouse (service-icon-blouse.dim_256x256.png)\n- Minimal icon: fancy blouse (service-icon-fancy-blouse.dim_256x256.png)\n- Minimal icon: chaniya choli/navratri outfit (service-icon-chaniya-choli.dim_256x256.png)\n- Minimal icon: dress design/sketch (service-icon-dress-design.dim_256x256.png)\n- Minimal icon: western dress/hanger (service-icon-western-dress.dim_256x256.png)\n- Minimal icon: custom stitching/tape measure (service-icon-custom-stitching.dim_256x256.png)\n- Minimal phone/contact icon (contact-phone-icon.dim_256x256.png)",
   "existing_features": [
     {
       "id": "feature-implement-a-clean-mobile-friendly-multi-page-website-for-the-ladies-tailoring-business-using-four-pages-home-about-us-services-and-contact-us",
@@ -91,12 +93,64 @@
         "REQ-10"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-replace-all-auto-inserted-generated-images-across-the-site-with-strictly-empty-optional-user-controlled-image-placeholders-that-include-an-upload-image-add-image-ui-in-the-image-area-and-ensure-the-website-still-looks-complete-and-professional-when-no-images-are-provided",
+      "title": "Replace all auto-inserted/generated images across the site with strictly empty, optional, user-controlled image placeholders that include an “Upload Image / Add Image” UI in the image area, and ensure the website still looks complete and professional when no images are provided.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-image-component-s-used-across-pages-currently-the-replaceableimage-component-so-that-it-supports-empty-state-placeholders-and-user-uploads-client-side-rather-than-requiring-a-src-url",
+      "title": "Update the image component(s) used across pages (currently the ReplaceableImage component) so that it supports empty-state placeholders and user uploads (client-side), rather than requiring a src URL.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-all-gujarati-site-content-to-match-the-provided-business-scope-and-details-include-ladies-gents-kids-tailoring-work-from-home-owner-name-working-hours-mobile-number-and-add-the-full-address-on-the-contact-page",
+      "title": "Update all Gujarati site content to match the provided business scope and details: include Ladies, Gents & Kids tailoring (work-from-home), owner name, working hours, mobile number, and add the full address on the Contact page.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-services-page-list-with-the-new-set-of-services-written-in-formal-gujarati-provided-by-the-user-and-include-optional-empty-image-placeholders-for-service-related-images-icons-user-uploaded",
+      "title": "Replace the Services page list with the new set of services (written in formal Gujarati) provided by the user, and include optional empty image placeholders for service-related images/icons (user uploaded).",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-user-s-important-note-copy-prominently-in-formal-gujarati-on-an-appropriate-page-section-e-g-home-and-or-services-and-or-about-so-it-is-clearly-visible-to-visitors",
+      "title": "Add the user’s “Important Note” copy prominently (in formal Gujarati) on an appropriate page section (e.g., Home and/or Services and/or About) so it is clearly visible to visitors.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
     {
       "id": "AR-1",
       "summary": "Generate the full website implementation (React + Tailwind) using the provided Gujarati content, layout, styling rules, and replaceable illustration/icon placeholders for Gayatri Ladies Tailor.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Replace all illustration requirements with strictly empty, optional image placeholders that show an “Upload Image / Add Image” UI in image areas; do not auto-insert any images (stock or AI), and ensure the site looks complete without images.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Update business scope/content to include Ladies, Gents & Kids tailoring (work-from-home), add full business address on Contact page, and update Services list accordingly in formal Gujarati.",
       "reqIds": [],
       "status": "pending"
     }

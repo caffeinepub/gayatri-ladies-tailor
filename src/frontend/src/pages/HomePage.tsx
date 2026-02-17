@@ -1,4 +1,4 @@
-import { Phone, Clock } from 'lucide-react';
+import { Phone, Clock, CheckCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import BrandHeader from '../components/BrandHeader';
 import ReplaceableImage from '../components/ReplaceableImage';
@@ -13,9 +13,8 @@ export default function HomePage() {
         
         <div className="mb-8 flex justify-center">
           <ReplaceableImage
-            src="/assets/generated/hero-sewing-illustration.dim_1400x800.png"
             alt={content.home.heroImageAlt}
-            className="w-full max-w-2xl h-auto"
+            className="w-full max-w-2xl h-auto min-h-[300px]"
           />
         </div>
 
@@ -42,6 +41,29 @@ export default function HomePage() {
               {content.home.callNowButton}
             </a>
           </Button>
+        </div>
+      </section>
+
+      {/* Important Note Section */}
+      <section className="mb-12">
+        <div className="bg-white rounded-lg p-8 border-2 border-brand-red shadow-md">
+          <h3 className="text-2xl font-bold text-brand-red text-center mb-6">
+            {content.home.importantNoteTitle}
+          </h3>
+          <div className="space-y-4">
+            <div className="flex items-start gap-3">
+              <CheckCircle className="w-6 h-6 text-brand-red flex-shrink-0 mt-1" />
+              <p className="text-lg text-foreground leading-relaxed">{content.home.importantNote1}</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <CheckCircle className="w-6 h-6 text-brand-red flex-shrink-0 mt-1" />
+              <p className="text-lg text-foreground leading-relaxed">{content.home.importantNote2}</p>
+            </div>
+            <div className="flex items-start gap-3">
+              <CheckCircle className="w-6 h-6 text-brand-red flex-shrink-0 mt-1" />
+              <p className="text-lg text-foreground leading-relaxed">{content.home.importantNote3}</p>
+            </div>
+          </div>
         </div>
       </section>
     </div>
